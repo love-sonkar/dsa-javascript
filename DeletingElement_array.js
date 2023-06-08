@@ -1,5 +1,5 @@
 // define array
-let array = ["12", "45", "65", "28", "54", "68"];
+let array = [12, 45, 65, 2, 54, 68];
 
 // which position of array you want to remove
 let position = 4;
