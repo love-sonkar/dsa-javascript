@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Testing my dsa js || stack</title>
+  </head>
+  <body>
+    <h2>hi</h2>
+    <div>
+      <input type="number" class="inputbox" />
+      <button class="push">Push</button>
+      <button class="pop">Pop</button>
+      <button class="display" onclick="DisplayStack(1)">Display Stack</button>
+      <button class="display" onclick="DisplayStack(2)">Hide Stack</button>
+      <button class="reset">Reset</button>
+    </div>
+    <div>
+      <input type="number" class="setmaxval" />
+      <button class="max">max stack</button>
+    </div>
+    <div style="display: flex">
+      <h2 class="maxvaluedata"></h2>
+    </div>
+    <div class="datadisplay"></div>
+    <script>
+      let Stack = [];
+      //showing max value data in dom
+      let maxvalue;
+      let targetDom = document.querySelector(".maxvaluedata");
+      function ShowMaxvalu() {
+        maxvalue === undefined
+          ? (targetDom.innerHTML = "max value is not set")
+          : (targetDom.innerHTML = `max value is ${maxvalue}`);
+      }
+      ShowMaxvalu();
+      //getting max value input from user and setting up
+      let inputmax = document.querySelector(".setmaxval");
+      document.querySelector(".max").addEventListener("click", () => {
+        MaxStack(parseInt(inputmax.value));
+        ShowMaxvalu();
+        inputmax.value = "";
+      });
+      //   function for setting max value in Stack
+      function MaxStack(n) {
+        return (maxvalue = parseInt(n));
+      }
+
+      //this is for getting vlaue from input field
+      let input = document.querySelector(".inputbox");
+      document.querySelector(".push").addEventListener("click", () => {
+        let inputval = input.value;
+        PushStack(inputval);
+        DisplayStack(1);
+        input.value = "";
+      });
+
+      //function for push data in stack element
+      function PushStack(val) {
+        if (val === "") return alert("cant empty");
+        if (maxvalue === Stack.length) return alert("max value reached");
+        Stack[Stack.length] = val;
+      }
+
+      //function for pop element from stack
+      document.querySelector(".pop").addEventListener("click", PopMethod);
+      function PopMethod() {
+        if (Stack.length === 0) return alert("Stack is already empty");
+        Stack.length = Stack.length - 1;
+        DisplayStack(1);
+      }
+
+      //function for display and hide stack data in dom
+      function DisplayStack(n) {
+        switch (n) {
+          case 1: {
+            document.querySelector(
+              ".datadisplay"
+            ).innerHTML = `<h1>${Stack}</h1>`;
+            break;
+          }
+          case 2: {
+            document.querySelector(".datadisplay").innerHTML = "";
+            break;
+          }
+        }
+      }
+    </script>
+  </body>
+</html>
