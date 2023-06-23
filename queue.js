@@ -1,7 +1,7 @@
 class Queue {
   constructor(maxvalue) {
     this.Queue = [];
-    this.maxvalue = maxvalue - 1;
+    this.maxvalue = maxvalue;
   }
 
   enqueue(newVal) {
@@ -22,7 +22,7 @@ class Queue {
   }
 }
 
-let queue = new Queue();
+let queue = new Queue(5);
 
 queue.enqueue(54);
 queue.enqueue(8);
@@ -31,5 +31,5 @@ queue.enqueue(54);
 queue.enqueue(8);
 queue.enqueue(54);
 queue.enqueue(8);
-
+queue.dequeue();
 queue.display();
