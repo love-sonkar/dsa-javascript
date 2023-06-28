@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>binary Search</title>
+  </head>
+  <body>
+    <div>
+      <div>[3,5,10,11,15,20]</div>
+      <input type="number" id="input" />
+      <button id="button-find">Find</button>
+      <div class="show-index"></div>
+    </div>
+
+    <script src="jquery.js"></script>
+    <script>
+      let array = [3, 5, 10, 11, 15, 20];
+      let found = 0;
+      function SearchBinary(arr, n) {
+        let start = 0;
+        let end = arr.length - 1;
+        while (start <= end) {
+          let mid = Math.floor((start + end) / 2);
+          if (arr[mid] == n) {
+            found = mid;
+            break;
+          } else if (arr[mid] < n) {
+            start = mid + 1;
+          } else {
+            end = mid - 1;
+          }
+        }
+      }
+
+      $("#button-find").on("click", function () {
+        let find = $("#input").val();
+        let findval = parseInt(find);
+        SearchBinary(array, findval);
+        $(".show-index").html(found);
+      });
+    </script>
+  </body>
+</html>

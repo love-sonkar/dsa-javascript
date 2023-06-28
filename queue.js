@@ -26,10 +26,4 @@ let queue = new Queue(5);
 
 queue.enqueue(54);
 queue.enqueue(8);
-
-queue.enqueue(54);
-queue.enqueue(8);
-queue.enqueue(54);
-queue.enqueue(8);
-queue.dequeue();
 queue.display();
