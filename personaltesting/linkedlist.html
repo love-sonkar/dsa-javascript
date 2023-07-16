@@ -9,39 +9,41 @@
   <body>
     <h1>HI</h1>
     <script>
-      function LinkdeList(x) {
-        this.head = {
-          value: x,
-          next: null,
-        };
-
-        this.tail = head;
-        this.size = 1;
-
-        append = function (newval) {
-          let newNode = {
-            value: newval,
+      class LinkedList {
+        constructor(valu) {
+          this.head = { val: valu, next: null };
+          this.tail = this.head;
+          this.size = 1;
+        }
+        appendList(valu) {
+          let newObj = {
+            val: valu,
             next: null,
           };
-          this.tail.next = newNode;
-          this.tail = newNode;
-          this.size += 1;
-          return newNode;
-        };
 
-        return {
-          head,
-          tail,
-          size,
-          append,
-        };
+          this.tail.next = newObj;
+          this.tail = newObj;
+          this.size++;
+        }
+
+        traversingNode() {
+          let count = 0;
+          let currentNode = this.head;
+          while (count < this.size) {
+            console.log(currentNode);
+            currentNode = currentNode.next;
+            count++;
+          }
+        }
       }
 
-      let listfunc = LinkdeList(5);
-      listfunc.append(6);
-      listfunc.append(7);
-      listfunc.append(8);
-      console.log(listfunc);
+      let list = new LinkedList(2);
+      list.appendList(4);
+      list.appendList(4);
+      list.appendList(4);
+      list.appendList(4);
+      list.traversingNode();
+      // console.log(list);
     </script>
   </body>
 </html>
